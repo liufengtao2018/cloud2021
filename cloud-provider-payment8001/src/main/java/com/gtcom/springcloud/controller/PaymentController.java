@@ -34,7 +34,7 @@ public class PaymentController {
             return new CommonResult(444, "插入失败", null);
         }
     }
-    @GetMapping(value="/payment/get")
+    @GetMapping(value="/payment/get/{id}")
     public CommonResult getPaymentById(@PathVariable("id") Long id)
     {
         Payment payment = paymentService.getPaymentById(id);
