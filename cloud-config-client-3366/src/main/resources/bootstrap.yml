@@ -20,6 +20,7 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
 #手动更新： curl -X POST "http://localhost:3355/actuator/refresh"
+# curl -X POST "http://localhost:3355/actuator/refresh/cloud-config-client:3366"
 management:
   endpoints:
     web:
