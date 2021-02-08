@@ -1,18 +1,15 @@
 server:
-  port: 3344
+  port: 3366
 spring:
   application:
-    name: cloud-config-server
+    name: cloud-config-client
   cloud:
     config:
-      server:
-        git:
-          uri: git@github.com:liufengtao2018/springcloud-config.git
-          search-paths:
-            - springcloud-config
       label: main
-
-#rabbitmq配置
+      name: config
+      profile: dev
+      uri: http://localhost:3344
+  #rabbitmq配置
   rabbitmq:
     host: localhost
     port: 5672
@@ -22,8 +19,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
+#手动更新： curl -X POST "http://localhost:3355/actuator/refresh"
 management:
   endpoints:
     web:
       exposure:
-        include: 'bus-refresh'
+        include: "*"
